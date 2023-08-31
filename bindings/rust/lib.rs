@@ -10,7 +10,7 @@
 //! tree-sitter [Parser][], and then use the parser to parse some code:
 //!
 //! ```
-//! use tree_sitter::Parser;
+//! use tree_sitter_c2rust::Parser;
 //!
 //! let code = r#"
 //!     class Test {
@@ -32,7 +32,7 @@
 //! [Parser]: https://docs.rs/tree-sitter/*/tree_sitter/struct.Parser.html
 //! [tree-sitter]: https://tree-sitter.github.io/
 
-use tree_sitter::Language;
+use tree_sitter_c2rust::Language;
 
 extern "C" {
     fn tree_sitter_java() -> Language;
@@ -63,7 +63,7 @@ pub const TAGGING_QUERY: &str = include_str!("../../queries/tags.scm");
 mod tests {
     #[test]
     fn can_load_grammar() {
-        let mut parser = tree_sitter::Parser::new();
+        let mut parser = tree_sitter_c2rust::Parser::new();
         parser
             .set_language(super::language())
             .expect("Error loading Java grammar");
